@@ -16,6 +16,7 @@ class Orders(Base):
                         default=datetime.now(timezone.utc))
 
     user = relationship("Users", back_populates="orders")
+    status = relationship("Status", back_populates="orders")
     order_items = relationship("OrderItems", back_populates="order")
 
     def __str__(self):
