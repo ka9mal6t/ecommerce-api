@@ -1,6 +1,6 @@
-from sqlalchemy import delete, insert, select
+from sqlalchemy import delete, insert, select, update
 
-from app.database import async_session_maker, engine
+from app.database import async_session_maker
 
 
 class BaseDAO:
@@ -32,5 +32,13 @@ class BaseDAO:
     async def delete(cls, **params):
         async with (async_session_maker() as session):
             query = delete(cls.model).where(*[getattr(cls.model, key) == value for key, value in params.items()])
+            await session.execute(query)
+            await session.commit()
+
+    @classmethod
+    async def update(cls, values, **params):
+        async with async_session_maker() as session:
+            query = update(cls.model).where(*[getattr(cls.model, key) == value for key, value in params.items()])
+            query = query.values(values)
             await session.execute(query)
             await session.commit()
