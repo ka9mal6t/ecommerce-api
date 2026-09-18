@@ -1,6 +1,6 @@
 from app.dao.base import BaseDAO
-from app.roles.models import Roles
+from app.order_items.models import OrderItems
 
 
-class RolesDAO(BaseDAO):
-    model = Roles
+class OrderItemsDAO(BaseDAO):
+    model = OrderItems
