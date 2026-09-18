@@ -1,6 +1,5 @@
 from datetime import datetime
-from starlette import status
-from fastapi import Request, Depends, HTTPException
+from fastapi import Request, Depends
 from app.exeptions import IncorrectLoginException
 import jwt
 

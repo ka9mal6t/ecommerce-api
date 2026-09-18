@@ -20,10 +20,4 @@ SMTP_USER = os.getenv("SMTP_USER")
 DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 ACCESS_SECRET_KEY = os.getenv("ACCESS_SECRET_KEY")
-REFRESH_SECRET_KEY = os.getenv("REFRESH_SECRET_KEY")
-# from secrets import token_bytes
-# from base64 import b64encode
-# print(b64encode(token_bytes(32)).decode())
 ALGORITHM = os.getenv("ALGORITHM")
-SENTRY1 = os.getenv("SENTRY1")
-SENTRY2 = os.getenv("SENTRY2")
