@@ -1,10 +1,10 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 
 class SProduct(BaseModel):
     name: str
     description: str
-    price = float
+    price: float
     image_url: str
 
 
